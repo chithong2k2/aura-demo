@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="auraBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5" />
+      <stop offset="50%" stop-color="#7c3aed" />
+      <stop offset="100%" stop-color="#9333ea" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="50%" stop-color="#facc15" />
+      <stop offset="100%" stop-color="#eab308" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="44" fill="url(#auraBg)"/>
+  <circle cx="100" cy="100" r="76" stroke="url(#goldGrad)" stroke-width="2.5" stroke-dasharray="4 6" opacity="0.6"/>
+  <circle cx="100" cy="100" r="68" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.4"/>
+  <path d="M115 55C80 65 65 100 80 135C90 155 110 162 125 158C95 160 70 130 75 95C78 72 96 58 115 55Z" fill="url(#goldGrad)"/>
+  <polygon points="120,70 126,86 142,92 126,98 120,114 114,98 98,92 114,86" fill="url(#goldGrad)"/>
+  <circle cx="148" cy="68" r="4" fill="#fef08a"/>
+  <circle cx="70" cy="62" r="3" fill="#fef08a"/>
+  <circle cx="140" cy="138" r="3" fill="#fef08a"/>
+</svg>
