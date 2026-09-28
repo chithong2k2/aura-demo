@@ -31,7 +31,7 @@ export const DEMO_USERS: User[] = [
   {
     id: 'u_admin',
     username: 'admin',
-    full_name: 'Aura Tarot Admin',
+    full_name: 'Aura Admin',
     role: 'manager',
     commission_percent: 0,
     avatar_url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150',
@@ -43,7 +43,7 @@ export const DEMO_USERS: User[] = [
   {
     id: 'u_reader1',
     username: 'linhdan',
-    full_name: 'Linh Đan (Tarot Master)',
+    full_name: 'Linh Đan',
     role: 'reader',
     commission_percent: 50,
     avatar_url: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150',
@@ -55,7 +55,7 @@ export const DEMO_USERS: User[] = [
   {
     id: 'u_reader2',
     username: 'minhtriet',
-    full_name: 'Minh Triết (Astrology & Tarot)',
+    full_name: 'Minh Triết',
     role: 'reader',
     commission_percent: 45,
     avatar_url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150',
@@ -67,7 +67,7 @@ export const DEMO_USERS: User[] = [
   {
     id: 'u_reader3',
     username: 'baongoc',
-    full_name: 'Bảo Ngọc (Lenormand & Tarot)',
+    full_name: 'Bảo Ngọc',
     role: 'reader',
     commission_percent: 40,
     avatar_url: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150',
@@ -79,7 +79,7 @@ export const DEMO_USERS: User[] = [
   {
     id: 'u_reader4',
     username: 'huongly',
-    full_name: 'Hương Ly (Tarot Healing)',
+    full_name: 'Hương Ly',
     role: 'reader',
     commission_percent: 45,
     avatar_url: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150',
@@ -91,7 +91,7 @@ export const DEMO_USERS: User[] = [
   {
     id: 'u_sale1',
     username: 'thanhtruc',
-    full_name: 'Thanh Trúc (Trưởng Nhóm Sale)',
+    full_name: 'Thanh Trúc',
     role: 'sale',
     commission_percent: 10,
     avatar_url: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150',
@@ -103,7 +103,7 @@ export const DEMO_USERS: User[] = [
   {
     id: 'u_sale2',
     username: 'duchuy',
-    full_name: 'Đức Huy (Sale Online)',
+    full_name: 'Đức Huy',
     role: 'sale',
     commission_percent: 10,
     avatar_url: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150',
@@ -373,7 +373,7 @@ export const DEMO_PAYROLL_PERIODS: PayrollPeriod[] = [
     items: [
       {
         user_id: 'u_reader1',
-        user_name: 'Linh Đan (Tarot Master)',
+        user_name: 'Linh Đan',
         role: 'reader',
         commission_percent: 50,
         total_amount: 5650000,
@@ -387,7 +387,7 @@ export const DEMO_PAYROLL_PERIODS: PayrollPeriod[] = [
       },
       {
         user_id: 'u_reader2',
-        user_name: 'Minh Triết (Astrology & Tarot)',
+        user_name: 'Minh Triết',
         role: 'reader',
         commission_percent: 45,
         total_amount: 4700000,
@@ -401,7 +401,7 @@ export const DEMO_PAYROLL_PERIODS: PayrollPeriod[] = [
       },
       {
         user_id: 'u_reader3',
-        user_name: 'Bảo Ngọc (Lenormand & Tarot)',
+        user_name: 'Bảo Ngọc',
         role: 'reader',
         commission_percent: 40,
         total_amount: 2550000,
@@ -415,7 +415,7 @@ export const DEMO_PAYROLL_PERIODS: PayrollPeriod[] = [
       },
       {
         user_id: 'u_sale1',
-        user_name: 'Thanh Trúc (Trưởng Nhóm Sale)',
+        user_name: 'Thanh Trúc',
         role: 'sale',
         commission_percent: 10,
         total_amount: 11500000,

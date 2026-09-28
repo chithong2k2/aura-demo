@@ -137,39 +137,74 @@ export default function App() {
     setUser(null);
   };
 
-  // Intercept mutations with read-only alerts
+  // Interactive In-Memory handlers
   const handleSaleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert(READ_ONLY_NOTICE);
+    if (editingSale) {
+      await firebaseService.updateSaleRecord(saleForm as SaleRecord);
+      setEditingSale(null);
+    } else {
+      await firebaseService.addSaleRecord(saleForm);
+      setSaleForm({ date: getVNDateStr() });
+    }
+    await fetchData();
   };
 
   const handleUserSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert(READ_ONLY_NOTICE);
+    if (editingUser) {
+      await firebaseService.updateUser(userForm as User);
+      setEditingUser(null);
+    } else {
+      await firebaseService.addUser(userForm);
+      setUserForm({});
+    }
+    await fetchData();
   };
 
-  const handleUserDelete = async (_id: string) => {
-    alert(READ_ONLY_NOTICE);
+  const handleUserDelete = async (id: string) => {
+    await firebaseService.deactivateUser(id);
+    await fetchData();
   };
 
-  const handleShiftRegistration = async (_shiftId: string, _day: string) => {
-    alert(READ_ONLY_NOTICE);
+  const handleShiftRegistration = async (shiftId: string, day: string) => {
+    const registration = { 
+      user_id: user?.id || 'u_reader1', 
+      shift_id: shiftId, 
+      day_of_week: day as any 
+    };
+    if (user?.role === 'sale') {
+      await firebaseService.registerSaleShift(registration);
+    } else {
+      await firebaseService.registerReaderShift(registration);
+    }
+    await fetchData();
   };
 
-  const handleShiftUnregistration = async (_id: string, _type?: 'reader' | 'sale') => {
-    alert(READ_ONLY_NOTICE);
+  const handleShiftUnregistration = async (id: string, type?: 'reader' | 'sale') => {
+    if (type === 'sale') {
+      await firebaseService.deleteSaleShift(id);
+    } else {
+      await firebaseService.deleteReaderShift(id);
+    }
+    await fetchData();
   };
 
-  const onUpdateUser = async (_data: Partial<User>) => {
-    alert(READ_ONLY_NOTICE);
+  const onUpdateUser = async (data: Partial<User>) => {
+    if (user) {
+      await firebaseService.updateUserProfile(user.id, data);
+      setUser(prev => prev ? { ...prev, ...data } : null);
+    }
+    await fetchData();
   };
 
-  const onUpdateSettings = async (_data: Partial<SystemSettings>) => {
-    alert(READ_ONLY_NOTICE);
+  const onUpdateSettings = async (data: Partial<SystemSettings>) => {
+    await firebaseService.updateSettings(data);
+    await fetchData();
   };
 
   const handleSyncToSheets = async () => {
-    alert(READ_ONLY_NOTICE);
+    alert('Đã kết nối và đồng bộ bảng tính mẫu thành công!');
   };
 
   const handleSeed = async () => {
@@ -315,9 +350,9 @@ export default function App() {
     <div className="min-h-screen bg-slate-50 flex flex-col">
       {/* Top Demo Banner */}
       <div className="bg-gradient-to-r from-purple-800 via-indigo-700 to-purple-900 text-white text-xs px-4 py-2 font-bold flex items-center justify-between shadow-sm shrink-0 z-50">
-        <div className="flex items-center gap-2 mx-auto text-center">
+        <div className="flex items-center gap-2 mx-auto text-center flex-wrap justify-center">
           <Sparkles size={14} className="text-amber-300 animate-pulse shrink-0" />
-          <span>BẢN DEMO XEM THỬ (CHỈ ĐỌC) — Trải nghiệm hệ thống Aura Tarot Studio</span>
+          <span>✨ BẢN DEMO XEM THỬ — Bạn có thể tự do bấm thử tính năng, tải lại trang (F5) sẽ tự khôi phục dữ liệu ban đầu</span>
           <span className="hidden sm:inline-block px-2 py-0.5 rounded-full bg-white/15 text-[10px] text-amber-200">
             Dữ liệu mô phỏng
           </span>
