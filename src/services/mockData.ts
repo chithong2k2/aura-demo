@@ -221,8 +221,8 @@ export const DEMO_SALES: SaleRecord[] = [
     id: 'DON-110',
     date: strTue,
     customer_name: 'Đỗ Thùy Trang',
-    package_name: 'Tarot - 10 câu trọn gói',
-    amount: 169000,
+    package_name: 'Tarot - 10 câu',
+    amount: 180000,
     tip: 30000,
     reader_id: 'u_reader1',
     sale_id: 'u_sale2',
@@ -438,16 +438,14 @@ export const DEMO_SETTINGS: SystemSettings = {
   bank_account_number: '190367899999',
   bank_account_name: 'AURA TAROT STUDIO',
   packages: [
-    { id: '1', name: 'Tarot - 1 câu', label: 'Tarot - 1 câu', price: 35000, popular: false },
-    { id: '2', name: 'Tarot - 3 câu', label: 'Tarot - 3 câu', price: 80000, popular: false },
-    { id: '3', name: 'Tarot - 5 câu', label: 'Tarot - 5 câu', price: 100000, popular: false },
-    { id: '4', name: 'Tarot - 7 câu', label: 'Tarot - 7 câu', price: 129000, popular: false },
-    { id: '5', name: 'Tarot - 10 câu', label: 'Tarot - 10 câu', price: 169000, popular: true },
-    { id: '6', name: 'Lenormand - 1 câu', label: 'Lenormand - 1 câu', price: 45000, popular: false },
-    { id: '7', name: 'Lenormand - 3 câu', label: 'Lenormand - 3 câu', price: 100000, popular: false },
-    { id: '8', name: 'Lenormand - 5 câu', label: 'Lenormand - 5 câu', price: 149000, popular: false },
-    { id: '9', name: 'Gói Tình Duyên Sâu 60p', label: 'Gói Tình Duyên Sâu 60p', price: 250000, popular: true },
-    { id: '10', name: 'Gói Sự Nghiệp & Tài Chính', label: 'Gói Sự Nghiệp & Tài Chính', price: 350000, popular: true },
-    { id: '11', name: 'Gói Chữa Lành Năng Lượng & Tarot', label: 'Gói Chữa Lành Năng Lượng & Tarot', price: 500000, popular: true }
+    { id: '1', name: 'Tarot - 1 câu', label: 'Tarot - 1 câu', price: 25000, popular: false },
+    { id: '2', name: 'Tarot - 3 câu', label: 'Tarot - 3 câu', price: 70000, popular: true },
+    { id: '3', name: 'Tarot - 5 câu', label: 'Tarot - 5 câu', price: 100000, popular: true },
+    { id: '4', name: 'Tarot - 7 câu', label: 'Tarot - 7 câu', price: 135000, popular: false },
+    { id: '5', name: 'Tarot - 10 câu', label: 'Tarot - 10 câu', price: 180000, popular: false },
+    { id: '6', name: 'Lenormand - 3 tháng', label: 'Lenormand - 3 tháng', price: 150000, popular: false },
+    { id: '7', name: 'Gói Tình Duyên Sâu 45p', label: 'Gói Tình Duyên Sâu 45p', price: 220000, popular: true },
+    { id: '8', name: 'Gói Định Hướng Sự Nghiệp 60p', label: 'Gói Định Hướng Sự Nghiệp 60p', price: 320000, popular: true },
+    { id: '9', name: 'Gói Tổng Quan Năm & Năng Lượng', label: 'Gói Tổng Quan Năm & Năng Lượng', price: 450000, popular: true }
   ]
 };

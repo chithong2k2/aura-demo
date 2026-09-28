@@ -732,7 +732,7 @@ export const StaffView: React.FC<StaffViewProps> = ({
                   value={userForm.full_name || ''}
                   onChange={e => setUserForm({ ...userForm, full_name: e.target.value })}
                   className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-[#7c3aed] text-sm font-medium text-slate-800"
-                  placeholder="VD: Nguyễn Văn Thông"
+                  placeholder="VD: Nguyễn Tuấn Anh"
                 />
               </div>
 

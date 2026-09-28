@@ -37,12 +37,13 @@ export const apiService = {
   analyzePriceMenu: async (_imageBase64: string, _mimeType?: string, _apiKey?: string) => ({
     success: true,
     packages: [
-      { name: 'Tarot - 3 câu', price: 80000 },
+      { name: 'Tarot - 1 câu', price: 25000 },
+      { name: 'Tarot - 3 câu', price: 70000 },
       { name: 'Tarot - 5 câu', price: 100000 },
-      { name: 'Tarot - 10 câu', price: 169000 }
+      { name: 'Tarot - 10 câu', price: 180000 }
     ],
     method: 'OCR AI' as any,
-    rawText: 'Tarot 3 cau: 80.000d\nTarot 5 cau: 100.000d',
+    rawText: 'Tarot 1 cau: 25.000d\nTarot 3 cau: 70.000d\nTarot 5 cau: 100.000d',
     message: 'Nhận diện thành công'
   }),
   testModelFallback: async () => ({

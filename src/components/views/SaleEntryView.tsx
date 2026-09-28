@@ -24,13 +24,14 @@ export interface PackageOption {
 }
 
 export const PACKAGE_TILES: PackageOption[] = [
-  { id: '1_cau', name: '1 câu', label: '1 Câu', price: 35000 },
-  { id: '3_cau', name: '3 câu', label: '3 Câu', price: 80000 },
-  { id: '5_cau', name: '5 câu', label: '5 Câu', price: 100000 },
-  { id: '7_cau', name: '7 câu', label: '7 Câu', price: 129000 },
-  { id: '10_cau', name: '10 câu', label: '10 Câu', price: 169000, popular: true },
-  { id: '1h', name: 'Trọn gói 1h', label: 'Trọn gói 1h', price: 300000 },
-  { id: 'nam', name: 'Gói Năm', label: 'Gói Năm', price: 500000 },
+  { id: '1_cau', name: '1 câu', label: '1 Câu', price: 25000 },
+  { id: '3_cau', name: '3 câu', label: '3 Câu', price: 70000, popular: true },
+  { id: '5_cau', name: '5 câu', label: '5 Câu', price: 100000, popular: true },
+  { id: '7_cau', name: '7 câu', label: '7 Câu', price: 135000 },
+  { id: '10_cau', name: '10 câu', label: '10 Câu', price: 180000 },
+  { id: 'tinh_duyen', name: 'Tình Duyên 45p', label: 'Tình Duyên 45p', price: 220000 },
+  { id: 'su_nghiep', name: 'Sự Nghiệp 60p', label: 'Sự Nghiệp 60p', price: 320000 },
+  { id: 'tong_quan', name: 'Gói Năm', label: 'Gói Năm', price: 450000 },
 ];
 
 // Exact VND format without space matching mockup: 169.000đ
@@ -89,7 +90,7 @@ export const SaleEntryView: React.FC<SaleEntryViewProps> = ({
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [saleToDelete, setSaleToDelete] = useState<SaleRecord | null>(null);
   const [mobileTab, setMobileTab] = useState<'form' | 'recent'>('form');
-  const [quickInput, setQuickInput] = useState('Chu Khánh 169k Giang, Thông');
+  const [quickInput, setQuickInput] = useState('Hải Yến 70k Linh Đan, Trúc');
   const [saveAndContinueLoading, setSaveAndContinueLoading] = useState(false);
   const customerInputRef = useRef<HTMLInputElement>(null);
 
@@ -105,7 +106,7 @@ export const SaleEntryView: React.FC<SaleEntryViewProps> = ({
   const userMap = new Map<string, User>();
   users.forEach(u => userMap.set(u.id, u));
 
-  // Staff short name helper (e.g. Vu Huong Giang -> Giang or full match)
+  // Staff short name helper (e.g. Linh Dan -> Dan or full match)
   const getStaffShortName = (val?: string) => {
     if (!val) return '';
     const user = userMap.get(val);
@@ -127,17 +128,17 @@ export const SaleEntryView: React.FC<SaleEntryViewProps> = ({
   };
 
   // Parsed quick data state (prefilled matching mockup default)
-  const defaultReader = users.find(u => u.full_name.toLowerCase().includes('giang')) || users.find(u => u.role === 'reader');
-  const defaultSale = users.find(u => u.full_name.toLowerCase().includes('thông')) || users.find(u => u.role === 'sale');
+  const defaultReader = users.find(u => u.full_name.toLowerCase().includes('đan')) || users.find(u => u.role === 'reader');
+  const defaultSale = users.find(u => u.full_name.toLowerCase().includes('trúc')) || users.find(u => u.role === 'sale');
 
   const [parsedData, setParsedData] = useState<ParsedQuickEntry | null>({
-    customerName: 'Chu Khánh',
-    amount: 169000,
-    packageName: '10 Câu',
+    customerName: 'Hải Yến',
+    amount: 70000,
+    packageName: '3 Câu',
     readerId: defaultReader?.id || '',
-    readerName: defaultReader?.full_name || 'Vu Huong Giang',
+    readerName: defaultReader?.full_name || 'Linh Đan',
     saleId: defaultSale?.id || '',
-    saleName: defaultSale?.full_name || 'Thông',
+    saleName: defaultSale?.full_name || 'Thanh Trúc',
     tip: 0
   });
 
@@ -256,19 +257,19 @@ export const SaleEntryView: React.FC<SaleEntryViewProps> = ({
       const packageName = matchedTile ? matchedTile.label : `${amount / 1000}k`;
 
       const parsed: ParsedQuickEntry = {
-        customerName: customerName || 'Chu Khánh',
+        customerName: customerName || 'Hải Yến',
         amount,
         packageName,
         readerId: readerId || saleForm.reader_id || defaultReader?.id || '',
-        readerName: readerName || (saleForm.reader_id ? userMap.get(saleForm.reader_id)?.full_name || '' : defaultReader?.full_name || 'Vu Huong Giang'),
+        readerName: readerName || (saleForm.reader_id ? userMap.get(saleForm.reader_id)?.full_name || '' : defaultReader?.full_name || 'Linh Đan'),
         saleId: saleId || saleForm.sale_id || defaultSale?.id || '',
-        saleName: saleName || (saleForm.sale_id ? userMap.get(saleForm.sale_id)?.full_name || '' : defaultSale?.full_name || 'Thông'),
+        saleName: saleName || (saleForm.sale_id ? userMap.get(saleForm.sale_id)?.full_name || '' : defaultSale?.full_name || 'Thanh Trúc'),
         tip: 0
       };
 
       setParsedData(parsed);
     } else if (showNotification) {
-      alert('Không tìm thấy giá tiền (ví dụ: 169k) trong nội dung nhập nhanh.');
+      alert('Không tìm thấy giá tiền (ví dụ: 70k, 100k) trong nội dung nhập nhanh.');
     }
   };
 
@@ -548,7 +549,7 @@ export const SaleEntryView: React.FC<SaleEntryViewProps> = ({
                       parseQuickText(e.target.value);
                     }}
                     onKeyDown={e => e.key === 'Enter' && (e.preventDefault(), applyParsedData())}
-                    placeholder="Chu Khánh 169k Giang, Thông"
+                    placeholder="Hải Yến 70k Linh Đan, Trúc"
                     className="flex-1 px-4 py-2.5 rounded-xl border border-[#ddd6fe] bg-white text-sm outline-none focus:ring-2 focus:ring-[#7c3aed] text-slate-800 font-medium placeholder:text-slate-400"
                   />
                   <button 
@@ -659,7 +660,7 @@ export const SaleEntryView: React.FC<SaleEntryViewProps> = ({
                       value={saleForm.customer_name || ''}
                       onChange={e => setSaleForm({ ...saleForm, customer_name: e.target.value })}
                       className="w-full px-4 py-2.5 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-[#7c3aed] bg-white text-sm font-medium placeholder:text-slate-400 text-slate-800" 
-                      placeholder="VD: Chu Khánh" 
+                      placeholder="VD: Hải Yến" 
                     />
                   </div>
 
